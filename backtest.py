@@ -14,9 +14,9 @@ import time
 
 class Backtest(object):
     """
-    这个类封装了进行事件驱动回测的设置与组成
+    Packaged the settings of even driven mechanism
     """
-    def __init__(
+    def __init__( 
         self,csv_dir,symbol_list,initial_capital,
         heartbeat,start_date,data_handler,
         execution_handler,portfolio,strategy,strat_params_list
@@ -43,7 +43,7 @@ class Backtest(object):
     
     def _generate_trading_instances(self,strategy_params_dict):
         """
-        从不同的类类型中生成交易实例对象
+        Generate trading objects from different types
         """
         print(
             "Creating DataHandler,Strategy,Portfolio and ExecutionHandler"
@@ -57,7 +57,7 @@ class Backtest(object):
     
     def _run_backtest(self):
         """
-        执行回测
+        Execution
         """
         i=0
         while True:
@@ -89,7 +89,7 @@ class Backtest(object):
             time.sleep(self.heartbeat)
     def _output_performance(self):
         """
-        输出回测得到策略业绩结果
+        Output the trading result
         """
         self.portfolio.create_equity_curve_dateframe()
         
@@ -107,7 +107,7 @@ class Backtest(object):
     
     def simulate_trading(self):
         """
-        模拟回测以及输出业绩结果的过程
+        Simulation and output the trading result 
         """
         out=open("opt.csv","w")
         spl=len(self.strat_params_list)
